@@ -13,22 +13,43 @@ class Home extends Component {
             style: {
                 fontSize: '24px',
                 color: 'green'
-            }
+            },
+            message: 'Message',
         }
+        this.getMessage = this.getMessage.bind(this);
+    }
+
+    getMessage() {
+        alert(this.state.message);
+    }
+
+    getTitle = () => {
+        alert(this.state.title);
+    }
+
+    getData = () => {
+        this.setState({
+            title: 'New title'
+        })
+    }
+
+    setTitle = (str) => {
+        this.setState({
+            title: str
+        })
     }
 
     render() {
         return (
             <div className="home">
-                <h1>Name：{this.state.title}</h1>
-                <p>{this.state.user.name}</p>
-                <p>{this.state.user.age}</p>
-                <div className="red">test</div>
-                <label htmlFor="name">Name</label>
-                <input id="name" type="text" />
-                <div style={{ color: 'gray' }}>灰色</div>
-                <div style={this.state.style}>绿色</div>
-                <img className="logo" src={require('../assets/images/logo.svg')} />
+                <h2>{this.state.title}</h2>
+                <button onClick={this.getMessage}>点击获取Message</button>
+                <br /><br />
+                <button onClick={this.getTitle}>点击获取Title</button>
+                <br /><br />
+                <button onClick={this.getData}>改变Title</button>
+                <br /><br />
+                <button onClick={this.setTitle.bind(this, 'Jack')}>传值Title</button>
             </div>
         )
     }
