@@ -19,3 +19,7 @@ code {
 .logo {
   height: 100px;
 }
+
+.myimg img {
+  width: 200px;
+}
