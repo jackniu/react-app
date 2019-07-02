@@ -15,6 +15,7 @@ class Home extends Component {
                 color: 'green'
             },
             message: 'Message',
+            name: ''
         }
     }
 
@@ -33,6 +34,27 @@ class Home extends Component {
         console.log(this.state.title);
     }
 
+    getName = () => {
+        let val = this.refs.username.value;
+        this.setState({
+            name: val
+        })
+    }
+
+    handleKeyDown = (e) => {
+        // console.log(e.target.value)
+        if (e.keyCode == 13) {
+            alert(e.target.value);
+        }
+    }
+
+    handleKeyUp = (e) => {
+        console.log(e.target.value)
+        if (e.keyCode == 13) {
+            alert(e.target.value);
+        }
+    }
+
     render() {
         return (
             <div className="home">
@@ -40,6 +62,11 @@ class Home extends Component {
                 <button myid='11' onClick={this.run}>点击获取Message</button>
                 <br /><br />
                 <input onChange={this.inputChange} /> <button onClick={this.getValue}>获取input的值</button>
+                <br /><br />
+                <input ref="username" onChange={this.getName} /> <span>姓名：{this.state.name}</span>
+                <br /><br />
+                <input onKeyDown={this.handleKeyDown} />
+                <input onKeyUp={this.handleKeyUp} />
             </div>
         )
     }
