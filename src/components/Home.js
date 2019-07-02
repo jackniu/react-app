@@ -16,40 +16,30 @@ class Home extends Component {
             },
             message: 'Message',
         }
-        this.getMessage = this.getMessage.bind(this);
     }
 
-    getMessage() {
-        alert(this.state.message);
+    run = (event) => {
+        console.log(event.target.getAttribute('myid'));
     }
 
-    getTitle = () => {
-        alert(this.state.title);
-    }
-
-    getData = () => {
+    inputChange = (e) => {
+        // console.log(e.target.value);
         this.setState({
-            title: 'New title'
+            title: e.target.value
         })
     }
 
-    setTitle = (str) => {
-        this.setState({
-            title: str
-        })
+    getValue = (e) => {
+        console.log(this.state.title);
     }
 
     render() {
         return (
             <div className="home">
                 <h2>{this.state.title}</h2>
-                <button onClick={this.getMessage}>点击获取Message</button>
+                <button myid='11' onClick={this.run}>点击获取Message</button>
                 <br /><br />
-                <button onClick={this.getTitle}>点击获取Title</button>
-                <br /><br />
-                <button onClick={this.getData}>改变Title</button>
-                <br /><br />
-                <button onClick={this.setTitle.bind(this, 'Jack')}>传值Title</button>
+                <input onChange={this.inputChange} /> <button onClick={this.getValue}>获取input的值</button>
             </div>
         )
     }
