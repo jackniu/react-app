@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+//引入自定义模块
+import storage from '../model/storage';
 import '../assets/css/index.css';
+
 
 class TodoList3 extends Component {
     constructor(props) {
@@ -41,7 +44,8 @@ class TodoList3 extends Component {
             })
             // console.log(tmp);
             //执行缓存数据
-            localStorage.setItem('todolist', JSON.stringify(tmp));
+            // localStorage.setItem('todolist', JSON.stringify(tmp));
+            storage.set('todolist', tmp);
         }
     }
 
@@ -53,7 +57,8 @@ class TodoList3 extends Component {
         })
         // console.log(tmp);
         //执行缓存数据
-        localStorage.setItem('todolist', JSON.stringify(tmp));
+        // localStorage.setItem('todolist', JSON.stringify(tmp));
+        storage.set('todolist', tmp);
     }
     deleteData = (key) => {
         // console.log(key)
@@ -63,13 +68,15 @@ class TodoList3 extends Component {
             list: tmp
         })
         //执行缓存数据
-        localStorage.setItem('todolist', JSON.stringify(tmp));
+        // localStorage.setItem('todolist', JSON.stringify(tmp));
+        storage.set('todolist', tmp);
     }
 
     // 页面加载就会触发
     componentDidMount() {
         // 获取缓存数据
-        let todolist = JSON.parse(localStorage.getItem('todolist'));
+        // let todolist = JSON.parse(localStorage.getItem('todolist'));
+        let todolist = storage.get('todolist');
         if (todolist) {
             this.setState({
                 list: todolist
