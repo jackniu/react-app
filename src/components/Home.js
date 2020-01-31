@@ -43,14 +43,14 @@ class Home extends Component {
 
     handleKeyDown = (e) => {
         // console.log(e.target.value)
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             alert(e.target.value);
         }
     }
 
     handleKeyUp = (e) => {
         console.log(e.target.value)
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             alert(e.target.value);
         }
     }
