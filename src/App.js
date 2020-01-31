@@ -4,14 +4,14 @@ import React from 'react';
 
 // import Home from './components/Home';
 // import News from './components/News'
-import TodoList2 from './components/TodoList2'
+import TodoList3 from './components/TodoList3'
 function App() {
   return (
     <div className="App">
       {/* 根组件 */}
       {/* <Home /> */}
       {/*<News /> */}
-      <TodoList2 />
+      <TodoList3 />
     </div>
   );
 }
